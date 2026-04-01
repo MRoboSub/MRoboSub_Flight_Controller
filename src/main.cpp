@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <ESP32Servo.h>
 #include <WiFi.h>
 #include "webserver.hpp"
 #include "hal.hpp"
@@ -14,7 +13,6 @@ void setup()
   Serial.begin(115200);
 
   Serial.println("Power on");
-
   Serial.println("Initalizing ESCs");
 
   delay(7000); // delay to allow the ESC to recognize the stopped signal
@@ -45,6 +43,7 @@ void loop()
       String command = input.substring(0, colonIndex);
       if (command == "HEARTBEAT")
       {
+        // TODO
       }
       else if (command == "POWER")
       {

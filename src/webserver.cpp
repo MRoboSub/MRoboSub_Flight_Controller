@@ -43,7 +43,8 @@ void handleSlider()
 }
 void handleRoot()
 {
-    String html = R"rawliteral(
+    String html =
+R"rawliteral(
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,7 +103,8 @@ button {
 
     html += String(hal_ptr->isEnabled() ? "TESTING ENABLED" : "TESTING DISABLED");
 
-    html += R"rawliteral(</button>
+    html +=
+R"rawliteral(</button>
 </form>
 <div class='section'>
 <h2>Outputs</h2>
@@ -123,7 +125,8 @@ button {
                                                     "</div>";
     }
 
-    html += R"rawliteral(
+    html +=
+R"rawliteral(
 </div>
 <script>
 function updateSlider(pin, value, valueElem) {
