@@ -8,9 +8,9 @@ HAL::HAL()
     pins[i].gpio = MotorConstants::PIN_VALUES[i];
     pins[i].label = MotorConstants::PIN_NAMES[i];
 
-    ledcSetup(MotorConstants::PIN_VALUES[i], MotorConstants::FREQUENCY, MotorConstants::RESOLUTION);
-    ledcAttachPin(MotorConstants::PIN_VALUES[i], MotorConstants::PIN_VALUES[i]);
-    ledcWrite(MotorConstants::PIN_VALUES[i], MotorConstants::NEUTRAL_DUTY);
+    ledcSetup(i, MotorConstants::FREQUENCY, MotorConstants::RESOLUTION);
+    ledcAttachPin(pins[i].gpio, i);
+    ledcWrite(i, MotorConstants::NEUTRAL_DUTY);
   }
 }
 
@@ -37,14 +37,14 @@ void HAL::update(int latest_update)
   {
     for (int i = 0; i < 8; i++)
     {
-      ledcWrite(pins[i].gpio, duty[i]);
+      ledcWrite(i, duty[i]);
     }
   }
   else
   {
     for (int i = 0; i < 8; i++)
     {
-      ledcWrite(pins[i].gpio, MotorConstants::NEUTRAL_DUTY);
+      ledcWrite(i, MotorConstants::NEUTRAL_DUTY);
     }
   }
 }
